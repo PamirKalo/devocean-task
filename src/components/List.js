@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import ListRow from './ListRow';
+import './List.css';
 
 const List = () => {
     const [catalog, loading] = useSelector((store) => [
@@ -21,10 +22,13 @@ const List = () => {
 
     return (
         <Fragment>
-            <section>
-                <h3>'BusinessDirectory'</h3>
+            <div className='list'>
+                <div className='list-row'>
+                    <span className='list-header-cell'>NAME</span>
+                    <span className='list-header-cell'>DESCRIPTION</span>
+                </div>
                 {loading === true ? 'Loading...' : rows}
-            </section>
+            </div>
         </Fragment>
     );
 };

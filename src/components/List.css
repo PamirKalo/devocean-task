@@ -1,0 +1,29 @@
+.list {
+    width: 100%;
+    display: table;
+    background-color: #fff;
+    border-collapse: collapse;
+}
+
+.list-row {
+    display: table-row;
+    border-bottom: 4px solid #f8f8fa;
+}
+
+.list-row:hover {
+    background-color: #f4f4f6;
+}
+
+.list-header-cell {
+    display: table-cell;
+    text-align: left;
+    font-weight: bold;
+    color: #9f3575;
+    padding: 17px 32px;
+}
+
+.list-cell {
+    display: table-cell;
+    text-align: left;
+    padding: 17px 32px;
+}

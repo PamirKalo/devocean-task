@@ -1,0 +1,9 @@
+.list a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.list a:hover {
+    text-decoration: none;
+}
