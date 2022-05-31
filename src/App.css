@@ -1,0 +1,44 @@
+/*--- Reset Default Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+/*--- General Styles ---*/
+body {
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f8fa;
+    color: #43414d;
+    font-size: 90%;
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 150%;
+}
+
+main {
+    padding-top: 37px;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+}
