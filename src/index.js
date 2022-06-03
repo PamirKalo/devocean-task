@@ -7,8 +7,6 @@ import App from './App';
 import allReducers from './redux-store/reducers';
 
 const store = configureStore({ reducer: allReducers });
-// const s = store.getState();
-// console.log(s.businesses.catalog);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
