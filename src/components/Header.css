@@ -1,0 +1,11 @@
+header {
+    background-color: #fff;
+    height: 72px;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    padding: 20px;
+}
+header a{
+    text-decoration: none;
+}
