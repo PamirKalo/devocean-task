@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import ListRow from './ListRow';
-import './List.css';
+import Row from './Row';
+import './Row.css';
 
 const List = () => {
     const [catalog, loading] = useSelector((store) => [
@@ -11,7 +11,7 @@ const List = () => {
 
     const rows = catalog.map((el) => {
         return (
-            <ListRow
+            <Row
                 key={el.id}
                 name={el.name}
                 description={el.description}

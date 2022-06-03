@@ -21,17 +21,12 @@ const DetailsPage = () => {
         content = 'Missing Data';
     } else {
         const nearby = catalog.filter(
-            (b) => b.address.city === business.address.city
+            (b) => b.address.city === business.address.city && b !== business
         );
         content = <Details business={business} nearby={nearby} />;
     }
 
-    return (
-        <Fragment>
-            <h3>'Item Details'</h3>
-            <div>{content}</div>
-        </Fragment>
-    );
+    return <Fragment>{content}</Fragment>;
 };
 
 export default DetailsPage;

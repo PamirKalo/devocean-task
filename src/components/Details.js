@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
-import NearbyRow from './NearbyRow';
+import Row from './Row';
+import './Details.css';
 
 const Details = (props) => {
     const { business, nearby } = props;
     const { image, address, email, phone } = business;
+
     const nearbyPlaces = nearby.map((el) => {
         return (
-            <NearbyRow
+            <Row
                 key={el.id}
                 id={el.id}
                 name={el.name}
@@ -20,22 +22,36 @@ const Details = (props) => {
 
     return (
         <Fragment>
-            <section>
-                <img src={image} alt='business' />
-                <div>
-                    <h3>Address</h3>
-                    <div>
-                        {address.number} {address.street}
+            <section className='details-section'>
+                <div className='details'>
+                    <div
+                        className='details-image'
+                        style={{ backgroundImage: `url(${image})` }}
+                    ></div>
+                    {/* <div className='details-info'> */}
+                    <div className='details-address'>
+                        <h3>Address</h3>
+                        <br />
+                        <span>
+                            {address.number} {address.street}
+                        </span>
+                        <br />
+                        <span>
+                            {address.city}, {address.zip}
+                        </span>
                     </div>
-                    <div>
-                        {address.city} {address.zip}
+                    <div className='details-contacts'>
+                        <h3>Contact</h3>
+                        <br />
+                        <span>{phone}</span>
+                        <br />
+                        <span>{email}</span>
                     </div>
-                    <h3>Contact</h3>
-                    <div>
-                        {phone} {email}
+                    <div className='details-nearby-places'>
+                        <h3>Nearby Places</h3>
+                        <div className='nearby-table'>{nearbyPlaces}</div>
                     </div>
-                    <h3>Nearby Places</h3>
-                    <div>{nearbyPlaces}</div>
+                    {/* </div> */}
                 </div>
             </section>
         </Fragment>
