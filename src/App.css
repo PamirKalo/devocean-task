@@ -26,9 +26,16 @@ h6 {
 body {
     font-weight: normal;
     font-family: 'Lato', sans-serif;
-    background-color: #f8f8fa;
+    background-color: #f8f8fc;
     color: #43414d;
     font-size: 90%;
+}
+
+main {
+    max-width: 83%;
+    padding-top: 2%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 h3 {
@@ -36,9 +43,4 @@ h3 {
     font-size: 150%;
 }
 
-main {
-    padding-top: 37px;
-    max-width: 1200px;
-    text-align: center;
-    margin: 0 auto;
-}
+

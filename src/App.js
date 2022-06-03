@@ -7,24 +7,25 @@ import { load_start } from './redux-store/actions';
 import Header from './components/Header';
 import List from './components/List';
 import DetailsPage from './components/DetailsPage';
-// import FetchData from './fetch';
+import './App.css';
 import fake from './assets/fake-data.json';
+const API_URL = 'https://api.jsonbin.io/b/6231abada703bb67492d2b8f';
 
 function App() {
     const dispatch = useDispatch();
     const fetchData = async () => {
-        // const API_URL = 'https://api.jsonbin.io/b/6231abada703bb67492d2b8f';
-        const test_api = 'https://jsonplaceholder.typicode.com/users'; // free test api
         dispatch(load_start());
         try {
             // const data = await fetch(API_URL);
             // const data = await fetch(test_api);
             // const json = await data.json();
+            // dispatch(load(json));
+
+            // ****** "API Requests Quota is Exhausted. ******
+            // Purchase more requests at https://jsonbin.io/pricing."
             setTimeout(() => {
                 dispatch(load(fake));
             }, 1000);
-
-            // dispatch(load(json));
         } catch (error) {
             return error;
         }
@@ -36,11 +37,11 @@ function App() {
     return (
         <BrowserRouter>
             <Header />
-            <div className='App'>Devocean-task</div>
             <main>
                 <Routes>
                     <Route path='/' element={<List />} />
                     <Route path='/details/:id' element={<DetailsPage />} />
+                    <Route path='*' element={"Missing data"} />
                 </Routes>
             </main>
         </BrowserRouter>
