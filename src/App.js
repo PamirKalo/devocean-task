@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { load } from './redux-store/actions';
 import { load_start } from './redux-store/actions';
@@ -16,18 +16,18 @@ function App() {
     const fetchData = async () => {
         dispatch(load_start());
         try {
-            // const data = await fetch(API_URL);
-            // const data = await fetch(test_api);
-            // const json = await data.json();
-            // dispatch(load(json));
+            const data = await fetch(API_URL);
+            const json = await data.json();
 
-            // ****** "API Requests Quota is Exhausted. ******
-            // Purchase more requests at https://jsonbin.io/pricing."
-            setTimeout(() => {
+            if (json.success === false) {
+                // ****** "API Requests Quota is Exhausted. ******
+                // Purchase more requests at https://jsonbin.io/pricing."
+                // Add fake data
                 dispatch(load(fake));
-            }, 1000);
+            } else dispatch(load(json));
         } catch (error) {
-            return error;
+            dispatch(load([]));
+            console.log('error in app.js->>>>>', error);
         }
     };
     useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<List />} />
                     <Route path='/details/:id' element={<DetailsPage />} />
-                    <Route path='*' element={"Missing data"} />
+                    <Route path='*' element={'Missing data'} />
                 </Routes>
             </main>
         </BrowserRouter>
