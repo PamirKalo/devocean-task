@@ -1,6 +1,6 @@
 # devocean-task
 DevOcean Solutions **React & Redux** task  
-The goal of this task is to create a very basic business directory.  
+The goal is to create a very basic business directory.  
 __Requirements__  
 * The following API will be used to retrieve the data:  
 https://api.jsonbin.io/b/6231abada703bb67492d2b8f  

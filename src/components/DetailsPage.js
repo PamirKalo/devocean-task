@@ -4,15 +4,21 @@ import { useParams } from 'react-router-dom';
 
 import Loading from './Loading';
 import Details from './Details';
+import ErrorPage from './ErrorPage';
 
 const DetailsPage = () => {
-    const [catalog, loading] = useSelector((store) => [
+    const [catalog, loading, failed] = useSelector((store) => [
         store.businesses.catalog,
         store.businesses.loading,
     ]);
+
     const params = useParams();
     const id = params.id;
     const business = catalog.find((b) => b.id === id);
+
+    if (failed === true) {
+        return <ErrorPage />;
+    }
 
     let content = null;
     if (loading === true) {

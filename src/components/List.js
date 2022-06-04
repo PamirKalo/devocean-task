@@ -1,13 +1,19 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import ErrorPage from './ErrorPage';
 import Row from './Row';
 import './Row.css';
 
 const List = () => {
-    const [catalog, loading] = useSelector((store) => [
+    const [catalog, loading, failed] = useSelector((store) => [
         store.businesses.catalog,
         store.businesses.loading,
+        store.businesses.failed,
     ]);
+
+    if (failed === true) {
+        return <ErrorPage />;
+    }
 
     const rows = catalog.map((el) => {
         return (
